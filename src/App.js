@@ -5,10 +5,16 @@ import LoadingScreen from './components/LoadingScreen';
 
 function App() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    const imagesList = [
+    // Critical images that need to be loaded before showing content
+    const criticalImages = [
       './images/logo.png',
+    ];
+
+    // Non-critical images that can load in the background
+    const nonCriticalImages = [
       './images/nw.png',
       './images/pw.png',
       './images/hcbb.png',
@@ -24,9 +30,20 @@ function App() {
       });
     };
 
-    Promise.all(imagesList.map(src => loadImage(src)))
+    // First load critical images
+    Promise.all(criticalImages.map(src => loadImage(src)))
       .then(() => {
         setImagesLoaded(true);
+        // After critical images are loaded, start loading non-critical images
+        setTimeout(() => {
+          setContentVisible(true);
+        }, 500); // Small delay to ensure smooth transition
+
+        // Load remaining images in the background
+        Promise.all(nonCriticalImages.map(src => loadImage(src)))
+          .then(() => {
+            console.log('All images loaded');
+          });
       });
   }, []);
 
@@ -35,7 +52,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${contentVisible ? 'content-visible' : ''}`}>
       <nav className="navbar">
         <div className="logo-container">
           <a href="#" onClick={(e) => {
