@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.96fb72a3.css",
-    "main.js": "/portfolio/static/js/main.924c11cd.js",
+    "main.css": "/portfolio/static/css/main.3b9fe441.css",
+    "main.js": "/portfolio/static/js/main.db75c566.js",
     "static/js/488.9561f9b8.chunk.js": "/portfolio/static/js/488.9561f9b8.chunk.js",
+    "static/media/pw.png": "/portfolio/static/media/pw.3e31114d94acf63df8c4.png",
+    "static/media/nw.png": "/portfolio/static/media/nw.3daf3f18c49d3896caa9.png",
+    "static/media/hcbb.png": "/portfolio/static/media/hcbb.8cf648119263f3cb6249.png",
+    "static/media/discordLogo.png": "/portfolio/static/media/discordLogo.667df059ddf407979d68.png",
     "index.html": "/portfolio/index.html",
-    "main.96fb72a3.css.map": "/portfolio/static/css/main.96fb72a3.css.map",
-    "main.924c11cd.js.map": "/portfolio/static/js/main.924c11cd.js.map",
+    "main.3b9fe441.css.map": "/portfolio/static/css/main.3b9fe441.css.map",
+    "main.db75c566.js.map": "/portfolio/static/js/main.db75c566.js.map",
     "488.9561f9b8.chunk.js.map": "/portfolio/static/js/488.9561f9b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96fb72a3.css",
-    "static/js/main.924c11cd.js"
+    "static/css/main.3b9fe441.css",
+    "static/js/main.db75c566.js"
   ]
 }
