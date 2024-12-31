@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from './images/logo.png';
+import LoadingScreen from './components/LoadingScreen';
 
 function App() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const imagesList = [
+      './images/logo.png',
+      './images/nw.png',
+      './images/pw.png',
+      './images/hcbb.png',
+      './images/discordLogo.png'
+    ];
+
+    const loadImage = (src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(); // Still resolve even if an image fails
+      });
+    };
+
+    Promise.all(imagesList.map(src => loadImage(src)))
+      .then(() => {
+        setImagesLoaded(true);
+      });
+  }, []);
+
+  if (!imagesLoaded) {
+    return <LoadingScreen />;
+  }
+
   return (
     <div className="App">
       <nav className="navbar">
